@@ -1,4 +1,7 @@
+"use client"
+
 import CheckIcon from "@/assets/check.svg"
+import { motion } from "framer-motion"
 import { twMerge } from "tailwind-merge";
 
 const pricingTiers = [
@@ -73,7 +76,18 @@ export const Pricing = () => {
 
                   <h3 className={twMerge("text-lg font-bold text-black/50", tier.inverse == true && 'text-white/60')}>{tier.title}</h3>
                   {
-                    tier.popular == true && <div className="inline-flex text-sm px-4 py-1.5 rounded-xl border border-white/20"><span className="bg-[linear-gradient(to_right,#DD7DDF,#E1CD86,#BBCB92,#71C2EF,#3BFFFF,#DD7DDF)] text-transparent bg-clip-text font-medium">popular</span></div>
+                    tier.popular == true && <div className="inline-flex text-sm px-4 py-1.5 rounded-xl border border-white/20"><motion.span className="bg-[linear-gradient(to_right,#DD7DDF,#E1CD86,#BBCB92,#71C2EF,#3BFFFF,#DD7DDF,#E1CD86,#BBCB92,#71C2EF,#3BFFFF)] [background-size:200%] text-transparent bg-clip-text font-medium"
+                      animate={{
+                        backgroundPositionX: "-100%",
+                      }}
+
+                      transition={{
+                        duration: 1,
+                        repeat: Infinity,
+                        ease: "linear",
+                        repeatType: "loop",
+                      }}
+                    >popular</motion.span></div>
                   }
 
                 </div>
@@ -99,5 +113,5 @@ export const Pricing = () => {
         }
       </div>
     </div>
-  </section>;
+  </section >;
 };
