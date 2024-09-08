@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-   basePath: "/2024-saas",
-  output: "export",
+  
+ 
   reactStrictMode: true,
   webpack(config) {
     // Grab the existing rule that handles SVG imports
